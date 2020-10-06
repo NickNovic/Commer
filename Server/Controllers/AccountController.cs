@@ -20,10 +20,11 @@ namespace Server.Controllers
             {
                 if(account != null)
                 {
-                    var ac = (Account)context.Accounts.Where(t => t.Name == account.Name | t.Email == account.Email).FirstOrDefault();
+                    var ac = context.Accounts.Where(t => (t.Name == account.Name || t.Email == account.Email)).FirstOrDefault();
                     
-                    //if(ac == null)
-                    //{
+                    
+                    if(ac == null)
+                    {
                         context.Accounts.Add
                         (
                             new Account()
@@ -36,8 +37,7 @@ namespace Server.Controllers
                         
                         context.SaveChanges();
                         return Ok();
-
-                 //   }
+                    }
                 }
             }
 
