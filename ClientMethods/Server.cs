@@ -17,7 +17,7 @@ namespace ClientMethods
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
-            await client.PostAsync("http://localhost:5000/account/SignUp/",
+            await client.PostAsync(reqestUri,
                 new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
         }
     }

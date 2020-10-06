@@ -12,7 +12,7 @@ namespace ClientMethods
     {
         public static async Task SignUp(Account account)
         {
-            await Server.PostAsync(account, "some string");
+            await Server.PostAsync(account, "http://localhost:5000/account/SignUp/");
         }
 
         static bool CheckPassword(string password)
