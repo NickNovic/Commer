@@ -7,13 +7,14 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Models/1.0.0": {
+      "ClientMethods/1.0.0": {
         "dependencies": {
+          "Models": "1.0.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "Models.dll": {}
+          "ClientMethods.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -29,11 +30,19 @@
             "fileVersion": "12.0.3.23909"
           }
         }
+      },
+      "Models/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "Models.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "Models/1.0.0": {
+    "ClientMethods/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -58,6 +67,11 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

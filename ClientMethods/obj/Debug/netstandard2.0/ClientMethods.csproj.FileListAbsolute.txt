@@ -1,0 +1,11 @@
+/home/nick/Programming/Projects/Commer/ClientMethods/bin/Debug/netstandard2.0/ClientMethods.deps.json
+/home/nick/Programming/Projects/Commer/ClientMethods/bin/Debug/netstandard2.0/ClientMethods.dll
+/home/nick/Programming/Projects/Commer/ClientMethods/bin/Debug/netstandard2.0/ClientMethods.pdb
+/home/nick/Programming/Projects/Commer/ClientMethods/bin/Debug/netstandard2.0/Models.dll
+/home/nick/Programming/Projects/Commer/ClientMethods/bin/Debug/netstandard2.0/Models.pdb
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.csprojAssemblyReference.cache
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.AssemblyInfoInputs.cache
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.AssemblyInfo.cs
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.csproj.CopyComplete
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.dll
+/home/nick/Programming/Projects/Commer/ClientMethods/obj/Debug/netstandard2.0/ClientMethods.pdb

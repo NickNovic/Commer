@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zWp1TMKQx6ICoclW117m1kDhcF/qiLCe+7SK/Nk01QU/Br4mf0nfhGv+atD8dJep4kKIlMUZ6D7aU0Pjcp1yYA==",
+  "dgSpecHash": "uyJqQvT/RG88vpSK4314iiK8X8t+IwMfyrkFbV/Nq4cNPOl/KDb6A0H/H5mq1PrUyz3GyQqndQTtl5J/U/i77A==",
   "success": true,
-  "projectFilePath": "/home/nick/Programming/Projects/Commer/ClientMethods/ClientMethods.csproj",
+  "projectFilePath": "/home/nick/Programming/Projects/Commer/Models/Models.csproj",
   "expectedPackageFiles": [
     "/home/nick/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/nick/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
