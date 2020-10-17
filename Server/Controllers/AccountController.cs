@@ -4,17 +4,23 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Net;
+using System.Net.Http;
+using Server.Singletones;
 using Models;
+
 
 namespace Server.Controllers
 {
+    
     [ApiController]
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
+        public static string SOME = "SOMA";
+        
         [Route("SignUp")]
         [HttpPost]
-        public IActionResult SignUp([FromBody]Account account)
+        public IActionResult SignUp([FromBody]Account account) //Метод регистрации
         {
             using(AccountContext context = new AccountContext())
             {
@@ -46,7 +52,7 @@ namespace Server.Controllers
         
         [Route("SignIn")]
         [HttpPost]
-        public bool SignIn([FromBody]Account account)
+        public HttpResponseMessage SignIn([FromBody]Account account)//Метод входа в аккаунт
         {
             using(AccountContext context = new AccountContext())
             {
@@ -54,16 +60,32 @@ namespace Server.Controllers
 
                 if(ac != null)
                 {
-                    return true;
+                    string token = TokenManager.GenerateToken(account);
+                    
+                    return new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new StringContent(token)
+                    };
                 }
             }
-            return false;
+            return new HttpResponseMessage(HttpStatusCode.Conflict);
         }
 
         [HttpGet]
         public string Return()
         {
-            return "Works!";
+            return SOME; //Дефолтный метод
+        }
+
+        [HttpPost]
+        public void POSTING(string change)//Чисто тестовая фигня
+        {
+            SOME = change;
+        }
+
+        void Authorization()
+        {
+            
         }
     }
 }

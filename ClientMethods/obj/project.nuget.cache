@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "zWp1TMKQx6ICoclW117m1kDhcF/qiLCe+7SK/Nk01QU/Br4mf0nfhGv+atD8dJep4kKIlMUZ6D7aU0Pjcp1yYA==",
+  "dgSpecHash": "C1HaxZbGAsXeizTbKatySnfBtB0/dtA/wWVNcGv82lLWBdTVRl3UFtA3f0Jxea/feUayWpOknrE7Y2MJssKyYA==",
   "success": true,
   "projectFilePath": "/home/nick/Programming/Projects/Commer/ClientMethods/ClientMethods.csproj",
   "expectedPackageFiles": [
     "/home/nick/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/nick/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
-    "/home/nick/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+    "/home/nick/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/home/nick/.nuget/packages/system.componentmodel.annotations/5.0.0-rc.1.20451.14/system.componentmodel.annotations.5.0.0-rc.1.20451.14.nupkg.sha512"
   ],
   "logs": []
 }

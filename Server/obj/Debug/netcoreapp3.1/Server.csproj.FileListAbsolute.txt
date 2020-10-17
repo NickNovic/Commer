@@ -60,3 +60,8 @@
 /home/nick/Programming/Projects/Commer/Server/obj/Debug/netcoreapp3.1/Server.dll
 /home/nick/Programming/Projects/Commer/Server/obj/Debug/netcoreapp3.1/Server.pdb
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/System.ComponentModel.Annotations.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll

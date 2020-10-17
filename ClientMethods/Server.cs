@@ -17,8 +17,9 @@ namespace ClientMethods
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
-            await client.PostAsync(reqestUri,
-                new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
+            var resp = await client.PostAsync(reqestUri,
+                    new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
+            Console.WriteLine(resp.ReasonPhrase);
         }
     }
 }

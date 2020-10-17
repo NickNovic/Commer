@@ -35,6 +35,10 @@
         "Newtonsoft.Json": {
           "target": "Package",
           "version": "[12.0.3, )"
+        },
+        "System.ComponentModel.Annotations": {
+          "target": "Package",
+          "version": "[5.0.0-rc.1.20451.14, )"
         }
       },
       "imports": [

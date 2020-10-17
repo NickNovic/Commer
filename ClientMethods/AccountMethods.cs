@@ -12,6 +12,7 @@ namespace ClientMethods
     {
         public static async Task SignUp(Account account)
         {
+            //"http://localhost:5000/account/SignUp/"
             await Server.PostAsync(account, "http://localhost:5000/account/SignUp/");
         }
 
