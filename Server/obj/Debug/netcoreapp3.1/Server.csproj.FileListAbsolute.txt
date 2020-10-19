@@ -65,3 +65,4 @@
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Web.config

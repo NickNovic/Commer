@@ -10,15 +10,15 @@ namespace Server.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 20, nullable: true),
+                    Password = table.Column<string>(maxLength: 20, nullable: true),
                     Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accounts", x => x.ID);
+                    table.PrimaryKey("PK_Accounts", x => x.Id);
                 });
         }
 

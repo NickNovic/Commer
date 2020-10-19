@@ -3,9 +3,10 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
+using Models;
 using Newtonsoft.Json;
 
-namespace JWTTests
+namespace Server.Singletones
 {
     public class TokenManager
     {

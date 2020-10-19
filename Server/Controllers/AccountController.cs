@@ -7,17 +7,14 @@ using System.Net;
 using System.Net.Http;
 using Server.Singletones;
 using Models;
-
+using Server.DataBase;
 
 namespace Server.Controllers
 {
-    
     [ApiController]
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        public static string SOME = "SOMA";
-        
         [Route("SignUp")]
         [HttpPost]
         public IActionResult SignUp([FromBody]Account account) //Метод регистрации
@@ -69,23 +66,6 @@ namespace Server.Controllers
                 }
             }
             return new HttpResponseMessage(HttpStatusCode.Conflict);
-        }
-
-        [HttpGet]
-        public string Return()
-        {
-            return SOME; //Дефолтный метод
-        }
-
-        [HttpPost]
-        public void POSTING(string change)//Чисто тестовая фигня
-        {
-            SOME = change;
-        }
-
-        void Authorization()
-        {
-            
         }
     }
 }
