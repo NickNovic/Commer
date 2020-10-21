@@ -10,7 +10,7 @@ namespace ClientMethods
 {
     public class Server
     {
-        public static async Task PostAsync(object obj, string reqestUri)
+        public static async Task<HttpResponseMessage>  PostAsync(object obj, string reqestUri)
         {
             HttpClient client = new HttpClient
             {
@@ -19,7 +19,9 @@ namespace ClientMethods
 
             var resp = await client.PostAsync(reqestUri,
                     new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
-            Console.WriteLine(resp.ReasonPhrase);
+
+            string res = resp.Content.ReadAsStringAsync().Result;
+            return resp;
         }
     }
 }

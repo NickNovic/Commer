@@ -4,31 +4,36 @@ using Models;
 
 namespace Server.DataBase
 {
-    public class SQLiteAccountRepository : IRepository<Account>
+    public class SQLiteAccountRepository : Repository<Account>
     {
         private AccountContext db;
-        
-        public void Dispose()//Я не знаю что это, если ты знаешь, то  скажите пожалуйста :D
+
+        public SQLiteAccountRepository()
         {
+            db = new AccountContext();
+        }
+        
+        public override void Dispose()//Я не знаю что это, если ты знаешь, то  скажите пожалуйста :D
+        {                    //Кажется знаю и кажется, это нужно просто оставить как есть
             db.Dispose();
         }
 
-        public IEnumerable<Account> GetList()
+        public override IEnumerable<Account> GetList()
         {
             return db.Accounts;
         }
 
-        public Account GetItem(int id)
+        public override Account GetItem(int id)
         {
             Account account = db.Accounts.FirstOrDefault(t => t.Id == id);
             return account;
         }
 
-        public bool Create(Account item)
+        public override bool Create(Account item)
         {
             var ac = db.Accounts.FirstOrDefault(t => t.Email == item.Email || t.Name == item.Name);
             
-            if (ac != null)
+            if (ac == null)
             {
                 db.Accounts.Add(item);
                 return true;
@@ -38,12 +43,19 @@ namespace Server.DataBase
             
         }
 
-        public bool Update(Account item)
+        public override bool Update(Account item)
         {
-            throw new System.NotImplementedException();
+            Account ac = db.Accounts.FirstOrDefault(t => t.Id == item.Id);
+            if (ac != null)
+            {
+                db.Accounts.Update(item);
+                return true;
+            }
+
+            return false;
         }
 
-        public bool Delete(int id)
+        public override bool Delete(int id)
         {
             Account ac = db.Accounts.FirstOrDefault(t => t.Id == id);
             if (ac != null)
@@ -55,7 +67,7 @@ namespace Server.DataBase
             return false;
         }
 
-        public void Save()
+        public override void Save()
         {
             db.SaveChanges();
         }

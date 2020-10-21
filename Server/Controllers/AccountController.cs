@@ -19,53 +19,56 @@ namespace Server.Controllers
         [HttpPost]
         public IActionResult SignUp([FromBody]Account account) //Метод регистрации
         {
-            using(AccountContext context = new AccountContext())
-            {
-                if(account != null)
-                {
-                    var ac = context.Accounts.Where(t => (t.Name == account.Name || t.Email == account.Email)).FirstOrDefault();
-                    
-                    
-                    if(ac == null)
-                    {
-                        context.Accounts.Add
-                        (
-                            new Account()
-                            {
-                                Name = account.Name,
-                                Password = account.Password,
-                                Email = account.Email
-                            }
-                        );
-                        
-                        context.SaveChanges();
-                        return Ok();
-                    }
-                }
-            }
+            SQLiteAccountRepository repository = new SQLiteAccountRepository();
 
+            bool registred = repository.Create(account);
+            if (registred)
+            {
+                repository.Save();
+                return Ok();
+            }
             return Conflict();
+            
         }
         
+        /// <summary>
+        /// Это метод входа в аккаунт
+        /// ВНИМАНИЕ! Его стабильная работа не гарантирована, потому, как у автора не было идей, как это проверить сейчас
+        /// Ну, по-идее должно работать
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
         [Route("SignIn")]
         [HttpPost]
-        public HttpResponseMessage SignIn([FromBody]Account account)//Метод входа в аккаунт
+        public /*HttpResponseMessage*/ IActionResult SignIn([FromBody]Account account)//Метод входа в аккаунт
         {
-            using(AccountContext context = new AccountContext())
-            {
-                var ac = (Account)context.Accounts.Where(t => t.Name == account.Name && t.Password == account.Password).FirstOrDefault();
-
-                if(ac != null)
+            if(CheckAccountData(account.Name, account.Password))
                 {
                     string token = TokenManager.GenerateToken(account);
                     
-                    return new HttpResponseMessage(HttpStatusCode.OK)
-                    {
-                        Content = new StringContent(token)
-                    };
+                    HttpResponseMessage message = new HttpResponseMessage();
+                    message.Content = new StringContent(token);
+                    message.StatusCode = HttpStatusCode.OK;
+                    return Ok(token);
                 }
+            
+            //return new HttpResponseMessage(HttpStatusCode.Conflict);
+            return Conflict();
+        }
+
+        private bool CheckAccountData(string name, string password)
+        {
+            using (AccountContext context = new AccountContext())
+            {
+                Account ac = context.Accounts.FirstOrDefault(t => t.Name == name);
+
+                if (ac != null && password == ac.Password)
+                {
+                    return true;
+                }
+
+                return false;
             }
-            return new HttpResponseMessage(HttpStatusCode.Conflict);
         }
     }
 }

@@ -16,6 +16,10 @@ namespace ClientMethods
             await Server.PostAsync(account, "http://localhost:5000/account/SignUp/");
         }
 
+        public static async Task SignIn(Account account)
+        {
+            await Server.PostAsync(account, "http://localhost:5000/account/SignIn/");
+        }
         static bool CheckPassword(string password)
         {
             //Проверки пароля на то, можно ли такой использовать
