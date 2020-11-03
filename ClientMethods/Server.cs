@@ -19,8 +19,6 @@ namespace ClientMethods
 
             var resp = await client.PostAsync(reqestUri,
                     new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json"));
-
-            string res = resp.Content.ReadAsStringAsync().Result;
             return resp;
         }
     }

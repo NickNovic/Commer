@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Models;
+using Models.Account;
 
 namespace Server.DataBase
 {
-    public class SQLiteAccountRepository : Repository<Account>
+    public class SQLiteAccountRepository : IAccountRepository<Account>
     {
         private AccountContext db;
 
@@ -13,23 +13,18 @@ namespace Server.DataBase
             db = new AccountContext();
         }
         
-        public override void Dispose()//Я не знаю что это, если ты знаешь, то  скажите пожалуйста :D
+        public void Dispose()//Я не знаю что это, если ты знаешь, то  скажите пожалуйста :D
         {                    //Кажется знаю и кажется, это нужно просто оставить как есть
             db.Dispose();
         }
 
-        public override IEnumerable<Account> GetList()
-        {
-            return db.Accounts;
-        }
-
-        public override Account GetItem(int id)
+        public Account GetItem(int id)
         {
             Account account = db.Accounts.FirstOrDefault(t => t.Id == id);
             return account;
         }
 
-        public override bool Create(Account item)
+        public bool Create(Account item)
         {
             var ac = db.Accounts.FirstOrDefault(t => t.Email == item.Email || t.Name == item.Name);
             
@@ -38,24 +33,10 @@ namespace Server.DataBase
                 db.Accounts.Add(item);
                 return true;
             }
-            
-            return false;
-            
-        }
-
-        public override bool Update(Account item)
-        {
-            Account ac = db.Accounts.FirstOrDefault(t => t.Id == item.Id);
-            if (ac != null)
-            {
-                db.Accounts.Update(item);
-                return true;
-            }
-
             return false;
         }
 
-        public override bool Delete(int id)
+        public bool Delete(int id)
         {
             Account ac = db.Accounts.FirstOrDefault(t => t.Id == id);
             if (ac != null)
@@ -63,13 +44,66 @@ namespace Server.DataBase
                 db.Accounts.Remove(ac);
                 return true;
             }
-            
             return false;
         }
 
-        public override void Save()
+        public void Save()
         {
             db.SaveChanges();
+        }
+
+        public Account SearchByEmail(string email)
+        {
+            var ac = db.Accounts.FirstOrDefault(t => t.Email == email);
+            return ac;
+        }
+
+        public Account SearchByName(string name)
+        {
+            var ac = db.Accounts.FirstOrDefault(t => t.Name == name);
+            return ac;
+        }
+
+        public bool ExistsWithEmail(string email)
+        {
+            var ac = SearchByEmail(email);
+            return AccountState(ac);
+        }
+
+        public bool ExistsWithName(string name)
+        {
+            var ac = SearchByName(name);
+            return AccountState(ac);
+        }
+
+        public bool AccountState(Account ac)
+        {
+            if (ac != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool Authorize(AuthorizationModel authorizationModel)//Найти нормальные имена
+        {
+            var acc = SearchByEmail(authorizationModel.Email);
+            if (acc != null)
+            {
+                return authorizationModel.Password == acc.Password;    
+            }
+            return false;
+        }
+
+        public bool Register(RegistrationModel registrationModel)//Найти нормальные имена
+        {
+            if (!ExistsWithEmail(registrationModel.Email) && !ExistsWithName(registrationModel.Name))
+            {
+                Account registerAccount = (Account) registrationModel;
+                return true;
+            }
+
+            return false;
         }
     }
 }

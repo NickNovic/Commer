@@ -1,5 +1,5 @@
 using System;
-using Models;
+using Models.Account;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Threading;
@@ -10,15 +10,17 @@ namespace ClientMethods
 {
     public class AccountMethods
     {
-        public static async Task SignUp(Account account)
+        public static async Task<HttpResponseMessage> SignUp(RegistrationModel account)
         {
             //"http://localhost:5000/account/SignUp/"
-            await Server.PostAsync(account, "http://localhost:5000/account/SignUp/");
+            HttpResponseMessage message = await Server.PostAsync(account, "http://localhost:5000/account/SignUp/");
+            return message;
         }
 
-        public static async Task SignIn(Account account)
+        public static async Task<HttpResponseMessage> SignIn(AuthorizationModel account)
         {
-            await Server.PostAsync(account, "http://localhost:5000/account/SignIn/");
+            HttpResponseMessage message = await Server.PostAsync(account, "http://localhost:5000/account/SignIn/");
+            return message;
         }
         static bool CheckPassword(string password)
         {

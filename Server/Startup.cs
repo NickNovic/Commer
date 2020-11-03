@@ -9,7 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Logging;
+using Server;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Server
 {
@@ -46,6 +49,7 @@ namespace Server
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }

@@ -66,3 +66,8 @@
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
 /home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Web.config
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/nick/Programming/Projects/Commer/Server/obj/Debug/netcoreapp3.1/Server.MvcApplicationPartsAssemblyInfo.cs
+/home/nick/Programming/Projects/Commer/Server/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll

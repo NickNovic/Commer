@@ -2,19 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Models.Account;
 
 namespace Server.DataBase
 {
-    public abstract class Repository<T> : IDisposable
+    public interface IAccountRepository<T> : IDisposable
                 where T : class
     {
-        public abstract void Dispose();
-        public abstract IEnumerable<T> GetList();
-        public abstract T GetItem(int id);
-
-        public abstract bool Create(T item);
-        public abstract bool Update(T item);
-        public abstract bool Delete(int id);
-        public abstract void Save();
+        public void Dispose();
+        //public IEnumerable<T> GetList();
+        //public T GetItem(int id);
+        public bool Create(T item);
+        //public bool Update(T item);
+        public bool Delete(int id);
+        public void Save();
+        public bool Authorize(AuthorizationModel model);
     }
 }

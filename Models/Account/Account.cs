@@ -3,7 +3,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 
-namespace Models
+namespace Models.Account
 {
     public class Account
     {
